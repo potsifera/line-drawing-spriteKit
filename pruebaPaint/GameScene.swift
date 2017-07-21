@@ -31,21 +31,21 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var touch = touches.first!.location(in: self)
+        let touch = touches.first!.location(in: self)
         firstPoint = touch
        
-        for t in touches {
+        /*for t in touches {
             self.touchDown(atPoint: t.location(in: self))
-             print(t.location(in:self))
-        }
+            print(t.location(in:self))
+        }*/
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        var positionInScene = touches.first!.location(in: self)
+        let positionInScene = touches.first!.location(in: self)
         
         let lineNode = SKShapeNode()
-        var pathToDraw = CGMutablePath()
+        let pathToDraw = CGMutablePath()
         
         pathToDraw.move(to: CGPoint(x:firstPoint.x, y:firstPoint.y))
         pathToDraw.addLine(to: CGPoint(x:positionInScene.x, y:positionInScene.y))
@@ -56,10 +56,10 @@ class GameScene: SKScene {
         self.addChild(lineNode)
         firstPoint = positionInScene
        
-        for t in touches {
+        /*for t in touches {
             self.touchMoved(toPoint: t.location(in: self))
             print(t.location(in:self))
-        }
+        }*/
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
