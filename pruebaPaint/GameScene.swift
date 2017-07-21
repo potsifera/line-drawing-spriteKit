@@ -44,12 +44,12 @@ class GameScene: SKScene {
         
         let positionInScene = touches.first!.location(in: self)
         
-        let lineNode = SKShapeNode()
-        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode() //for vector processing
+        let pathToDraw = CGMutablePath() //makes a path
         
-        pathToDraw.move(to: CGPoint(x:firstPoint.x, y:firstPoint.y))
-        pathToDraw.addLine(to: CGPoint(x:positionInScene.x, y:positionInScene.y))
-        lineNode.path = pathToDraw
+        pathToDraw.move(to: CGPoint(x:firstPoint.x, y:firstPoint.y))//where line will start
+        pathToDraw.addLine(to: CGPoint(x:positionInScene.x, y:positionInScene.y))//where line ends
+        lineNode.path = pathToDraw //draws the path
         lineNode.lineWidth = 2.0
         lineNode.strokeColor = UIColor.red
         
