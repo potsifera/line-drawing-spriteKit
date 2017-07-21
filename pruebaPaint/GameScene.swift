@@ -52,6 +52,7 @@ class GameScene: SKScene {
         lineNode.path = pathToDraw //draws the path
         lineNode.lineWidth = 2.0
         lineNode.strokeColor = UIColor.red
+        lineNode.name = "line"
         
         self.addChild(lineNode)
         firstPoint = positionInScene
@@ -64,6 +65,10 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        //comment if you dont want the lines to disappear after touches ended
+        enumerateChildNodes(withName: "line", using: {node, stop in
+            node.removeFromParent()
+        })
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
